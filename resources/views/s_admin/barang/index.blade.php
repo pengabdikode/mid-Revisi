@@ -51,7 +51,7 @@
                                     <form action="{{route('s_adminBarang.destroy',['id'=>$item->id])}}" method="POST">
                                             @csrf
                                             <input type="hidden" name="_method" value="delete">
-                                            <input type="submit" class="btn btn-danger btn-sm" value="Hapus Barang">
+                                            <input type="submit" class="btn btn-danger btn-block btn-sm" value="Hapus Barang">
                                     </form>
                                 </tr>
                             @endforeach
