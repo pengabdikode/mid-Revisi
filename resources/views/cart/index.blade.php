@@ -7,7 +7,7 @@
                     <li class="list-group-item active">keranjang belanja</li>
                     @foreach ($cart as $item)
                     <li class="list-group-item">
-                        {{$item->name}} {{$item->quantity}} unit x Rp. {{number_format($item->price)}} = Rp. {{number_format($item->price)}}
+                        {{$item->name}} {{$item->quantity}} unit x Rp. {{number_format($item->price)}} = Rp. {{number_format($item->getPriceSum())}}
                         <div class="row float-right">
                             <div class="col-md-5">
                                 <form action="{{route('min.cart')}}" method="POST">
