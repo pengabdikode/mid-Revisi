@@ -47,6 +47,7 @@
                                 <td>{{$item->stok}}</td>
                                 <td>{{$item->deskripsi}}</td>
                                 <td>{{$item->created_at}}</td>
+
                                 <td><a href="{{route('s_adminBarang.edit',['id'=>$item->id])}}" class="btn btn-sm btn-success">Update Barang</a>
                                     <form action="{{route('s_adminBarang.destroy',['id'=>$item->id])}}" method="POST">
                                             @csrf

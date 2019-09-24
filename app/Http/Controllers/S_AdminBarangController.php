@@ -20,7 +20,7 @@ class S_AdminBarangController extends Controller
         $this->middleware(function($request,$next){
             if (Gate::allows('s_admin')) {
                 return $next($request);
-            } else {abort(403,'lu sapa bangs*t ?');
+            } else {abort(403,'lu sapa bangs*t ???');
             }
         });
         $this->kategori = Kategori::all();
@@ -127,7 +127,7 @@ class S_AdminBarangController extends Controller
             $barang->foto.$foto;//
         }
         $barang->save();
-        return redirect()->route('barang.index');
+        return redirect()->route('s_adminBarang.index');
     }
 
     /**
@@ -141,6 +141,6 @@ class S_AdminBarangController extends Controller
         $barang=Barang::findOrFail($id);
         $barang->delete();
 
-        return redirect()->route('barang.index')->with('status',' Data Berhasil Dihapus !!');
+        return redirect()->route('s_adminBarang.index')->with('status',' Data Berhasil Dihapus !!');
     }
 }
