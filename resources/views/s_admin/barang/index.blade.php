@@ -17,7 +17,7 @@
                     <table class="table">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col">Foto</th>
+                            <th scope="col">fffffFoto</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Merk</th>
                             <th scope="col">Tipe</th>
