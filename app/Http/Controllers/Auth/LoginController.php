@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use Illuminate\Support\Facades\Gate;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+       
+    }
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -25,15 +31,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+   // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-       
-    }
+    
 }
