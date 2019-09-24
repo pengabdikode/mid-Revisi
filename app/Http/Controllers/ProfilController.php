@@ -61,7 +61,9 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user_id=\Auth::user()->id;
+        $users= User::find($user_id);
+        return view('profil.edit',['users'=>$users]);
     }
 
     /**
@@ -73,7 +75,18 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::findOrFail($id);
+        $users->nama_lengkap=$request->nama_lengkap;
+        $users->alamat=$request->alamat;
+        if ($request->file('foto')){
+            if($users->foto and file_exists(storage_path('app/public/'.$users->foto))){
+                \Storage::delete('public/'.$users->foto);
+            }
+            $foto=$request->file('foto')->store('foto_user','public');
+            $users->foto.$foto;
+        }
+        $users->save();
+        return redirect()->route('profil.index');
     }
 
     /**

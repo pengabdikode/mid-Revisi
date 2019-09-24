@@ -123,8 +123,8 @@ class S_AdminBarangController extends Controller
             if($barang->foto and file_exists(storage_path('app/public/'.$barang->foto))){
                 \Storage::delete('public/'.$barang->foto);
             }
-            $foto=$request->file('foto')->store('foto_kategori','public');
-            $barang->foto.$foto;//
+            $foto=$request->file('foto')->store('foto_barang','public');
+            $barang->foto.$foto;
         }
         $barang->save();
         return redirect()->route('s_adminBarang.index');

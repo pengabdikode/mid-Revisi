@@ -46,6 +46,7 @@ Route::post('/cart-min','CartController@min')->name('min.cart');
 Route::post('/cart-plus','CartController@plus')->name('plus.cart');
 Route::get('/cart','CartController@index')->name('index.cart');
 Route::get('/province','RajaOngkirController@province');
+
 //admin
 
 Route::resource('barang','BarangController');
@@ -57,7 +58,7 @@ Route::get('/s_admin','HomeController@index_s_admin')->name('home');
 Route::get('/pembeli','HomeController@index_pembeli')->name('home');
 
 Route::get('shop/{id}/kategori', 'ShopController@index_kategori')->name('kategori.barang');
-Route::resource('profile','ProfilController');
+Route::resource('profil','ProfilController');
 Route::resource('kategori','KategoriController');
 Route::resource('s_adminBarang','S_AdminBarangController');
 Route::resource('user','UserController');
