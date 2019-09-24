@@ -26,9 +26,7 @@ class CartController extends Controller
             $this->user_id=\Auth::user()->id;
             $totalCart=\Cart::session($this->user_id)->getContent()->count();
             $cart=\Cart::session($this->user_id)->getContent()->sort();
-            return view('cart.index',
-            ['total'=>$totalCart,
-            'cart'=>$cart]);
+            return view('cart.index',['total'=>$totalCart,'cart'=>$cart]);
         }
     public function add(Request $request){
         $this->user_id=\Auth::user()->id;
