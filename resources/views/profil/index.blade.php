@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Profil {{$users->name}}</div>
-                <div class="card-body">
-                        <div class="form-group row">
+                <div class="card-header" enctype="multipart/form-data">Profil {{$users->name}}</div>
+                <div class="card-body" >
+                        <div class="form-group row" >
                             <label class="col-md-4 col-form-label text-md-right">Username</label>
                             <fieldset disabled>
                                 <div class="col-md-12">
@@ -49,7 +49,7 @@
                                     </td>
                                 @else
                                 <td>
-                                    <img src="{{asset('storage/'.$item->foto_user)}}" width="100" height="60">
+                                    <img src="{{asset('storage/'.$users->foto_user)}}" width="100" height="100">
                                 </td>
                                 @endif
                                     </div>

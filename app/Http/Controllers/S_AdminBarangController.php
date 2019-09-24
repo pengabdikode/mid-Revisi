@@ -124,7 +124,7 @@ class S_AdminBarangController extends Controller
                 \Storage::delete('public/'.$barang->foto);
             }
             $foto=$request->file('foto')->store('foto_barang','public');
-            $barang->foto.$foto;
+            $barang->foto=$foto;
         }
         $barang->save();
         return redirect()->route('s_adminBarang.index');

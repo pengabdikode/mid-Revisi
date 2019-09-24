@@ -83,7 +83,7 @@ class ProfilController extends Controller
                 \Storage::delete('public/'.$users->foto);
             }
             $foto=$request->file('foto')->store('foto_user','public');
-            $users->foto.$foto;
+            $users->foto=$foto;
         }
         $users->save();
         return redirect()->route('profil.index');
