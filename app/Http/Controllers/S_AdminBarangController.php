@@ -127,7 +127,7 @@ class S_AdminBarangController extends Controller
             $barang->foto.$foto;//
         }
         $barang->save();
-        return redirect()->route('barang.index');
+        return redirect()->route('s_adminBarang.index');
     }
 
     /**
@@ -141,6 +141,6 @@ class S_AdminBarangController extends Controller
         $barang=Barang::findOrFail($id);
         $barang->delete();
 
-        return redirect()->route('barang.index')->with('status',' Data Berhasil Dihapus !!');
+        return redirect()->route('s_adminBarang.index')->with('status',' Data Berhasil Dihapus !!');
     }
 }

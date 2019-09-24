@@ -9,21 +9,16 @@
                 </div>
                 <form action="{{route('s_adminBarang.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    {{-- 
-                    <div class="form-group">
-                        <label>Pilih Kategori</label>
-                        <select class="form-control" id="nama_kategori" name="nama_kategori">
-                            @foreach ($kategori as $item)
-                        <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                     --}}
-                    <select class="js-example-basic-multiple" name="kategori[]" multiple="multiple">
+                        <div class="form-group">
+                            <label>Pilih Kategori</label>
+                            <div class="form-group">
+                    <select class="js-example-basic-multiple col-md-12 form-control" name="kategori[]" multiple="multiple">
                             @foreach ($kategori as $item)
                                 <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
                             @endforeach
                         </select>
+                    </div>
+                    </div>
                     <div class="form-group">
                         <label>Nama Barang</label>
                         <input type="text" class="form-control {{$errors->has('nama_barang') ? ' is-invalid' : ''}}" name="nama_barang">

@@ -7,14 +7,19 @@
             <div class="card">
                 <div class="card-header">Ubah Barang
                 </div>
-                <form action="{{route('barang.update',['$id'=>$barang->id])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('s_adminBarang.update',['$id'=>$barang->id])}}" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     @csrf
-                    <select class="js-example-basic-multiple" name="kategori[]" multiple="multiple">
-                        @foreach ($kategori as $item)
-                            <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group">
+                        <label>Pilih Kategori</label>
+                        <div class="form-group">
+                            <select class="js-example-basic-multiple col-md-12 form-control" name="kategori[]" multiple="multiple">
+                            @foreach ($kategori as $item)
+                                <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>Nama Barang</label>
                         <input type="text" class="form-control" value="{{$barang->nama_barang}}" id= "nama_barang" name="nama" placeholder="Nama Barang">
