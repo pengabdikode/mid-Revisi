@@ -54,6 +54,7 @@ Route::get('/pembeli','HomeController@index_pembeli')->name('home');
 //Super Admin
 Route::get('/s_admin','HomeController@index_s_admin')->name('home');
 Route::get('shop/{id}/kategori', 'ShopController@index_kategori')->name('kategori.barang');
+Route::resource('profile','ProfilController');
 Route::resource('kategori','KategoriController');
 Route::resource('s_adminBarang','S_AdminBarangController');
 Route::resource('user','UserController');
