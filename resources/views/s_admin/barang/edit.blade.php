@@ -13,10 +13,10 @@
                     <div class="form-group">
                         <label>Pilih Kategori</label>
                         <div class="form-group">
-                            <select class="js-example-basic-multiple col-md-12" name="kategori[]" multiple="multiple">
-                                @foreach ($kategori as $item)
-                                    <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
-                                @endforeach
+                            <select class="js-example-basic-multiple col-md-12 form-control" name="kategori[]" multiple="multiple">
+                            @foreach ($kategori as $item)
+                                <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
+                            @endforeach
                             </select>
                         </div>
                     </div>

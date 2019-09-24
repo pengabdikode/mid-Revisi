@@ -38,7 +38,7 @@ Route::get('/login', function (Request $request) {
     }
 })->name('autentikasi.admin');
 */
-
+Route::post('/auth','authcontroller@login')->name('auth');
 Auth::routes();
 Route::post('/cart-add','CartController@add')->name('add.cart');
 Route::get('/transaksi','CartController@transaksi')->name('transaksi');
@@ -47,12 +47,15 @@ Route::post('/cart-plus','CartController@plus')->name('plus.cart');
 Route::get('/cart','CartController@index')->name('index.cart');
 Route::get('/province','RajaOngkirController@province');
 //admin
-Route::get('/home','HomeController@index')->name('home');
+
 Route::resource('barang','BarangController');
 //customer
-Route::get('/pembeli','HomeController@index_pembeli')->name('home');
-//Super Admin
+//Route::get('/pembeli','HomeController@index_pembeli')->name('home');
+//Auth
+Route::get('/admin','HomeController@index')->name('home');
 Route::get('/s_admin','HomeController@index_s_admin')->name('home');
+Route::get('/pembeli','HomeController@index_pembeli')->name('home');
+
 Route::get('shop/{id}/kategori', 'ShopController@index_kategori')->name('kategori.barang');
 Route::resource('profile','ProfilController');
 Route::resource('kategori','KategoriController');
