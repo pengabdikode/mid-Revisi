@@ -15,8 +15,9 @@ use App\Kategori;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//route halaman utama
 Route::get('/', function () {
+    //route session cart
     $totalCart=0;
     if(\Auth::user()){
         $user_id=\Auth::user()->id;
@@ -38,36 +39,60 @@ Route::get('/login', function (Request $request) {
     }
 })->name('autentikasi.admin');
 */
+//middleware
 Route::post('/auth','authcontroller@login')->name('auth');
 Auth::routes();
-Route::post('/cart-add','CartController@add')->name('add.cart');
-Route::get('/transaksi','CartController@transaksi')->name('transaksi');
-Route::post('/cart-min','CartController@min')->name('min.cart');
-Route::post('/cart-plus','CartController@plus')->name('plus.cart');
+
+//route cart
 Route::get('/cart','CartController@index')->name('index.cart');
+//isi barang ke cart
+Route::post('/cart-add','CartController@add')->name('add.cart');
+//kurang jumlah barang di cart
+Route::post('/cart-min','CartController@min')->name('min.cart');
+//tambah jumlah barang di cart
+Route::post('/cart-plus','CartController@plus')->name('plus.cart');
+
+//route chechout
+Route::get('/checkout','CartController@index_checkout')->name('index.checkout');
+//route di halaman checkout untuk menyimpan data transaksi
+Route::get('/transaksi','CartController@transaksi')->name('transaksi');
+//route halaman payment
+Route::get('/payment','CartController@payment')->name('payment');
+//route buat meriksa ongkir *error
 Route::get('/province','RajaOngkirController@province');
 
 //admin
-
+//route barang admin
 Route::resource('barang','BarangController');
-//customer
-//Route::get('/pembeli','HomeController@index_pembeli')->name('home');
+
+//super admin
+//route tambah kurang admin 
+Route::resource('user','UserController');
+//route barang super admin
+Route::resource('s_adminBarang','S_AdminBarangController');
+//route kategori
+Route::resource('kategori','KategoriController');
+
 //Auth
 Route::get('/admin','HomeController@index')->name('home');
 Route::get('/s_admin','HomeController@index_s_admin')->name('home');
 Route::get('/pembeli','HomeController@index_pembeli')->name('home');
 
-Route::get('shop/{id}/kategori', 'ShopController@index_kategori')->name('kategori.barang');
-Route::resource('profil','ProfilController');
-Route::resource('kategori','KategoriController');
-Route::resource('s_adminBarang','S_AdminBarangController');
-Route::resource('user','UserController');
-Route::resource('shop','ShopController');
 
+//route shop
+Route::resource('shop','ShopController');
+//route shop lihat berdasar kategori
+Route::get('shop/{id}/kategori', 'ShopController@index_kategori')->name('kategori.barang');
+//route lihat detail barang
 Route::get('/info_barang/{id}', function($id){
     $barang=Barang::findOrFail($id);
     return view ('single',['barang'=>$barang]);
 });
+
+//route lihat dan ubah profil
+Route::resource('profil','ProfilController');
+
+
 
 
 

@@ -17,6 +17,7 @@ class CreateTransaksiTable extends Migration
             $table->Increments('id');
             $table->string('kode',9)->unique();
             $table->boolean('status');
+            $table->text('alamat');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

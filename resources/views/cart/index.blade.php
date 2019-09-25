@@ -30,19 +30,9 @@
                     @endforeach
                     </li>
                     <li class="list-group-item">
-                    <a href="{{route('transaksi',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Checkout</a>
-
+                    <a href="{{route('index.checkout',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Checkout</a>
                     </li>
                 </ul>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">Cek Ongkir</div>
-                    <form action="">
-                        <select name="province" id="province">
-                        </select>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
