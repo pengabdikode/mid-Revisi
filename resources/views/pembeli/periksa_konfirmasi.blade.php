@@ -8,7 +8,16 @@
                 <div class="card-header">Payment
                 </div>
                 <div class="card-body">
-                    <h3>Harap lakukan pembayaran ke rekening roy !</h3>
+                    <form action="{{route('periksa_konfirmasi')}}" method="GET">
+                        @csrf
+                        <div class="form-group">
+                            <label>Input Kode pembayaran</label>
+                            <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukan Kode Pembayaran">
+                            <button type="submit" class="btn btn-success">Periksa</button>
+                        </div>
+                    </form>
+                    {{-- <h5>Nama Penerima : {{$user->nama_penerima}}</h5>
+                    <h5>Alamat Pengiriman : {{$user->alamat_kirim}}</h5> --}}
                     <table class="table">
                         <thead class="thead-light">
                             <th scope="col">Nama Barang</th>
@@ -17,12 +26,12 @@
                             <th scope="col">Total harga</th> 
                         </thead>
                         <tbody>
-                    @foreach ($cart as $item)
+                    @foreach ($data as $item)
                     <tr>
-                        <td>{{$item->name}}</td>
+                        <td>{{$item->nama_barang}}</td>
                         <td>{{$item->quantity}}</td>
-                        <td>Rp. {{number_format($item->price)}}</td>
-                        <td>Rp. {{number_format($item->getPriceSum())}}</td>
+                        <td>Rp. {{number_format($item->harga)}}</td>
+                        <td>Rp. {{number_format(($item->harga)*($item->quantity))}}</td>
                     </tr>
                     @endforeach
                         </tbody>

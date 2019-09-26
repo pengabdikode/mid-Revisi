@@ -15,11 +15,15 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('kode',9)->unique();
-            $table->boolean('status');
-            $table->text('alamat');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('kode',9)->unique();
+            $table->enum('status',['pending','already paid','unsuccessful'])->default('pending');
+            $table->string('nama_penerima')->nullable();
+            $table->text('alamat_kirim')->nullable();
+            $table->string('nama_pemilik_rekening')->nullable();
+            $table->string('nomor_rekening')->nullable();
+            $table->string('kode_pengiriman')->nullable();
             $table->timestamps();
         });
     }

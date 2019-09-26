@@ -14,39 +14,56 @@
                     @endforeach
                     </li>
                     <li class="list-group-item">
+                        <label>Data Pengiriman</label>
+                        <form action="{{route('transaksi')}}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label>Nama Penerima</label>
+                                <input type="text" class="form-control" id="nama_penerima" placeholder="Password">
+                            </div>
+                            <div class="form-group">
                             <label>Alamat Kirim</label>
-                        <form>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    alamat sesuai profil
-                                  {{-- {{$user->alamat}} --}}
-                                </label>
+                                @if ($users->alamat == null)
+                                    <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" disabled>
+                                    <label>Alamat Kosong</label>
+                                @else
+                                    <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" value="alamat">
+                                    <label class="form-check-label" for="exampleRadios1">{{$users->alamat}}</label>
+                                @endif
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" value="alamat" checked>
+                                    <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Isi Alamat Lain" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Pembayaran</label>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pilih_bayar" id="alamat" checked>
+                                    <label>langsung di tempat</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pilih_bayar" id="alamat" value="alamat" checked>
+                                    <label>Transfer Bank</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="nama_penerima" placeholder="Nama Pemilik Rekening">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="nama_penerima" placeholder="Nomor Rekening">
+                                    </div>
+                            </div>
+                        </div>
 
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                  Isi alamat lain
-                                </label>
-                              </div>
+                            {{-- @if ($cart == null)
+                                <button type="submit" class="btn btn-success" disabled>Payment</button>
+                            @else --}}
+                                <button type="submit" class="btn btn-success" >Payment</button>
+                            {{-- @endif --}}
+                            
                         </form>
                     </li>
-                    </li>
-                    <li class="list-group-item">
-                    <a href="{{route('transaksi',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Payment</a>
-
-                    </li>
                 </ul>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">Cek Ongkir</div>
-                    <form action="">
-                        <select name="province" id="province">
-                        </select>
-                    </form>
-                </div>
             </div>
         </div>
     </div>

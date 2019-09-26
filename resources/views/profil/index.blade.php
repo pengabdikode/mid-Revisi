@@ -27,7 +27,7 @@
                             <label class="col-md-4 col-form-label text-md-right">Nama Lengkap</label>
                             <fieldset disabled>
                                 <div class="col-md-12">
-                                    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="{{$users->nama_lengkap}}">
+                                    <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" value="{{$users->nama_lengkap}}">
                                  </div>
                             </fieldset>
                         </div>
@@ -35,7 +35,7 @@
                             <label class="col-md-4 col-form-label text-md-right">Alamat</label>
                             <fieldset disabled>
                                 <div class="col-md-12">
-                                    <input id="alamat" type="text" class="form-control" name="alamat" value="{{$users->alamat}}">
+                                    <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{$users->alamat}}">
                                 </div>
                             </fieldset>
                         </div>
@@ -49,7 +49,7 @@
                                     </td>
                                 @else
                                 <td>
-                                    <img src="{{asset('storage/'.$users->foto_user)}}" width="100" height="100">
+                                    <img src="{{asset('storage/'.$users->foto)}}" width="100" height="100">
                                 </td>
                                 @endif
                                     </div>
