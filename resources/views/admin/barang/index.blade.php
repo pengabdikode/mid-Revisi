@@ -50,7 +50,8 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                      </table>
+                    </table>
+                    {{ $barang->links() }}
                 </div>
             </div>
         </div>

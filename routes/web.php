@@ -55,9 +55,12 @@ Route::post('/cart-plus','CartController@plus')->name('plus.cart');
 //route chechout
 Route::get('/checkout','CartController@index_checkout')->name('index.checkout');
 //route di halaman checkout untuk menyimpan data transaksi
-Route::get('/transaksi','CartController@transaksi')->name('transaksi');
+Route::post('/transaksi','CartController@transaksi')->name('transaksi');
 //route halaman payment
 Route::get('/payment','CartController@payment')->name('payment');
+//route periksa pembayaran
+Route::get('/periksa_konfirmasi','CartController@periksa_konfirmasi')->name('periksa_konfirmasi');
+
 //route buat meriksa ongkir *error
 Route::get('/province','RajaOngkirController@province');
 
@@ -72,6 +75,8 @@ Route::resource('user','UserController');
 Route::resource('s_adminBarang','S_AdminBarangController');
 //route kategori
 Route::resource('kategori','KategoriController');
+//route payment
+Route::get('/payment','PaymentController@index')->name('payment.index');
 
 //Auth
 Route::get('/admin','HomeController@index')->name('home');

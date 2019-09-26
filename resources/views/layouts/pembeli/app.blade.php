@@ -59,6 +59,8 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profil.index') }}">Edit Profil</a>
+                                    <a class="dropdown-item" href="/periksa_konfirmasi">Cek Status pembayaran</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -81,7 +83,7 @@
         </main>
     </div>
     @yield('js')
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         window.__lc = window.__lc || {};
         window.__lc.license = 11306652;
         (function() {
@@ -89,6 +91,6 @@
           lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
         })();
-      </script>
+      </script> --}}
 </body>
 </html>
