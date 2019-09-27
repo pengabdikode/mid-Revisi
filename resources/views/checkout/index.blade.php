@@ -14,31 +14,31 @@
                     @endforeach
                     </li>
                     <li class="list-group-item">
-                        <label>Data Pengiriman</label>
+                        <h4>Data Pengiriman</h4>
                         <form action="{{route('transaksi')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>Nama Penerima</label>
-                                <input type="text" class="form-control" id="nama_penerima" placeholder="Password">
+                                <h5>Nama Penerima</h5>
+                                <input type="text" class="form-control" id="nama_penerima" name="nama_penerima" placeholder="Nama Penerima">
                             </div>
                             <div class="form-group">
-                            <label>Alamat Kirim</label>
+                            <h5>Alamat Kirim</h5>
                             <div class="form-check">
                                 @if ($users->alamat == null)
                                     <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" disabled>
                                     <label>Alamat Kosong</label>
                                 @else
-                                    <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" value="alamat">
-                                    <label class="form-check-label" for="exampleRadios1">{{$users->alamat}}</label>
+                                    <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" value="{{$users->alamat}}">
+                                    <label class="form-check-label" id="alamat" name="alamat">{{$users->alamat}}</label>
                                 @endif
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" value="alamat" checked>
-                                    <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Isi Alamat Lain" value="">
+                                <input class="form-check-input" type="radio" name="alamat_choise" id="alamat" value="2" checked>
+                                <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Isi Alamat Lain" value="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Pembayaran</label>
+                            <h5>Pembayaran</h5>
                             <div class="form-check">
                                     <input class="form-check-input" type="radio" name="pilih_bayar" id="alamat" checked>
                                     <label>langsung di tempat</label>

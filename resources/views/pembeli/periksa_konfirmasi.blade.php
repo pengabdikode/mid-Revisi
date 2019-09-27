@@ -12,12 +12,26 @@
                         @csrf
                         <div class="form-group">
                             <label>Input Kode pembayaran</label>
-                            <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukan Kode Pembayaran">
-                            <button type="submit" class="btn btn-success">Periksa</button>
+                            <div class="form-row">
+                            <div class="col-7">
+                                <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukan Kode Pembayaran">
+                                <button type="submit" class="btn btn-success">Periksa</button>
+                            </div>
                         </div>
                     </form>
-                    {{-- <h5>Nama Penerima : {{$user->nama_penerima}}</h5>
-                    <h5>Alamat Pengiriman : {{$user->alamat_kirim}}</h5> --}}
+                    @if(empty($datauser))
+                        
+                    @else
+                        <h5>Nama user : {{$datauser->name}}</h5>
+                        <h5>Nama Penerima : {{$user->nama_penerima}}</h5>
+                        <h5>Alamat Pengiriman : {{$user->alamat_kirim}}</h5>
+                        <h5><b> Status Pesanan : 
+                            <div class="col-md-4">
+                                    <h4 class="text-danger">{{$user->status}}</h4>
+                            </div>
+                            </b>
+                        </h5>
+                    @endif
                     <table class="table">
                         <thead class="thead-light">
                             <th scope="col">Nama Barang</th>

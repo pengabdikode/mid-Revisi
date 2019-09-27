@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transaksi;
 use App\ViewKode;
+use App\Payment;
 use Illuminate\Support\Facades\Gate;
 
 class PaymentController extends Controller

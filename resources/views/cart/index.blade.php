@@ -5,9 +5,21 @@
             <div class="col-md-8">
                 <ul class="list-group">
                     <li class="list-group-item active">keranjang belanja</li>
-                    @foreach ($cart as $item)
+                    @php
+                        $jumlahtotal = 0;
+                    @endphp
+                    @if ($kosong)
                     <li class="list-group-item">
-                        {{$item->name}} {{$item->quantity}} unit x Rp. {{number_format($item->price)}} = Rp. {{number_format($item->getPriceSum())}}
+                        <h3>Keranjang Belanja Anda Kosong</h3>
+                    </li>
+                    @else
+                    @foreach ($cart as $item)
+                    @php
+                        $jumlah = $item->getPriceSum();
+                        $jumlahtotal = $jumlahtotal + $jumlah;
+                    @endphp
+                    <li class="list-group-item">
+                        {{$item->name}} {{$item->quantity}} unit x Rp. {{number_format($item->price)}} = Rp. {{number_format($jumlah)}}
                         <div class="row float-right">
                             <div class="col-md-5">
                                 <form action="{{route('min.cart')}}" method="POST">
@@ -28,9 +40,19 @@
                             </div>
                         </div>
                     @endforeach
+                    @endif
                     </li>
                     <li class="list-group-item">
-                    <a href="{{route('index.checkout',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Checkout</a>
+                        <div class="col-mb-5 right">
+                            <h5 class="right">Rp. {{ number_format($jumlahtotal) }}</h5>
+                            @if ($kosong)
+                                <fieldset disabled>
+                                    <a href="{{route('index.checkout',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Checkout</a>
+                                </fieldset>
+                            @else
+                                <a href="{{route('index.checkout',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Checkout</a>
+                            @endif
+                        </div>
                     </li>
                 </ul>
             </div>

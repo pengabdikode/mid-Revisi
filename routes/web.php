@@ -60,6 +60,12 @@ Route::post('/transaksi','CartController@transaksi')->name('transaksi');
 Route::get('/payment','CartController@payment')->name('payment');
 //route periksa pembayaran
 Route::get('/periksa_konfirmasi','CartController@periksa_konfirmasi')->name('periksa_konfirmasi');
+//route input payment
+Route::get('/input_payment','CartController@input_payment')->name('input_payment');
+//route proses input payment
+Route::post('/simpan_payment','CartController@simpan_payment')->name('simpan_payment');
+
+
 
 //route buat meriksa ongkir *error
 Route::get('/province','RajaOngkirController@province');
@@ -77,6 +83,7 @@ Route::resource('s_adminBarang','S_AdminBarangController');
 Route::resource('kategori','KategoriController');
 //route payment
 Route::get('/payment','PaymentController@index')->name('payment.index');
+
 
 //Auth
 Route::get('/admin','HomeController@index')->name('home');

@@ -5,10 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Payment
+                <div class="card-header">Invoice
                 </div>
                 <div class="card-body">
                     <h3>Harap lakukan pembayaran ke rekening roy !</h3>
+                    {{$transaksi->name}}
+                    <h5>Kode Invoice Anda : {{$transaksi->kode}}</h5>
+                    <h5>Nama Penerima : {{$transaksi->nama_penerima}}</h5>
+                    <h5>Alamat Penerima : {{$transaksi->alamat_kirim}}</h5>
                     <table class="table">
                         <thead class="thead-light">
                             <th scope="col">Nama Barang</th>

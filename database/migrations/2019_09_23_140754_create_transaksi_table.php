@@ -18,7 +18,7 @@ class CreateTransaksiTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('kode',9)->unique();
-            $table->enum('status',['pending','already paid','unsuccessful'])->default('pending');
+            $table->enum('status',['pending','already paid','unsuccessful','send'])->default('pending');
             $table->string('nama_penerima')->nullable();
             $table->text('alamat_kirim')->nullable();
             $table->string('nama_pemilik_rekening')->nullable();

@@ -8,16 +8,33 @@
                 <div class="card-header">Payment
                 </div>
                 <div class="card-body">
-                    <form action="{{route('periksa_konfirmasi')}}" method="GET">
-                        @csrf
-                        <div class="form-group">
-                            <label>Input Kode pembayaran</label>
-                            <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukan Kode Pembayaran">
-                            <button type="submit" class="btn btn-success">Periksa</button>
+                        <form action="{{route('periksa_konfirmasi')}}" method="GET">
+                                @csrf
+                                <div class="form-group">
+                                    <label>Input Kode pembayaran</label>
+                                    <div class="form-row">
+                                    <div class="col-7">
+                                        <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukan Kode Pembayaran">
+                                        </div>
+                                    <button type="submit" class="btn btn-success">Periksa</button>   
+                                </div>
+                            </form>
+                            <div class="form-group">
+                            @if(empty($datauser))
+                                
+                            @else
+                                <h5>Nama user : {{$datauser->name}}</h5>
+                                <h5>Nama Penerima : {{$user->nama_penerima}}</h5>
+                                <h5>Alamat Pengiriman : {{$user->alamat_kirim}}</h5>
+                                <h5><b> Status Pesanan : 
+                                    <div class="col-md-4">
+                                            <h4 class="text-danger">{{$user->status}}</h4>
+                                    </div>
+                                    </b>
+                                </h5>
+                            @endif
                         </div>
-                    </form>
-                    {{-- <h5>Nama Penerima : {{$user->nama_penerima}}</h5>
-                    <h5>Alamat Pengiriman : {{$user->alamat_kirim}}</h5> --}}
+
                     <h5>Pembayaran Pending</h5>
                     <table class="table">
                         <thead class="thead-light">
