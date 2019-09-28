@@ -44,7 +44,7 @@
                     </li>
                     <li class="list-group-item">
                         <div class="col-mb-5 right">
-                            <h5 class="right">Rp. {{ number_format($jumlahtotal) }}</h5>
+                            <h5 class="right"> Total Belanja Anda : Rp. {{ number_format($jumlahtotal) }}</h5>
                             @if ($kosong)
                                 <fieldset disabled>
                                     <a href="{{route('index.checkout',['id'=>Auth::user()->id])}}" type="submit" class="btn btn-success">Checkout</a>

@@ -169,8 +169,8 @@ class CartController extends Controller
 
     public function transaksi(Request $request){
         $this->user_id=\Auth::user()->id;
-        $pilihan = $request->alamat_choise;
-        if($pilihan == 2){
+        $pilihan_alamat = $request->alamat_choise;
+        if($pilihan_alamat == 2){
             $transaksi=new \App\Transaksi;
             $transaksi->kode = str_random(9);
             $transaksi->user_id=$this->user_id;
