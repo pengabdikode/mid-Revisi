@@ -20,7 +20,9 @@ class CreateTransaksiTable extends Migration
             $table->string('kode',9)->unique();
             $table->enum('status',['pending','already paid','unsuccessful','send'])->default('pending');
             $table->string('nama_penerima')->nullable();
-            $table->text('alamat_kirim')->nullable();
+            $table->string('alamat_kirim')->nullable();
+            $table->enum('bayar',['langsung','transfer']);
+            $table->string('nama_bank')->nullable();
             $table->string('nama_pemilik_rekening')->nullable();
             $table->string('nomor_rekening')->nullable();
             $table->string('kode_pengiriman')->nullable();

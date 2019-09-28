@@ -37,30 +37,35 @@
                                 <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Isi Alamat Lain" value="">
                             </div>
                         </div>
+                    </li>
+                    <li class="list-group-item">
                         <div class="form-group">
                             <h5>Pembayaran</h5>
                             <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="pilih_bayar" id="alamat" checked>
-                                    <label>langsung di tempat</label>
+                                    <input class="form-check-input" type="radio" name="bayar" id="alamat" value="langsung">
+                                    <label class="form-check-label" id="langsung" name="langsung">Langsung di tempat</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pilih_bayar" id="alamat" value="alamat" checked>
-                                    <label>Transfer Bank</label>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="nama_penerima" placeholder="Nama Pemilik Rekening">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="nama_penerima" placeholder="Nomor Rekening">
-                                    </div>
+                                <input class="form-check-input" type="radio" name="bayar" id="alamat" value="2" checked>
+                                <label>Transfer Bank</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="transfer" id="transfer" placeholder="Nama bank">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="transfer" id="transfer" placeholder="Nama Pemilik Rekening">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="transfer" id="transfer" placeholder="Nomor Rekening">
+                                </div>
                             </div>
                         </div>
-
+                        <div class="form-group">
                             {{-- @if ($cart == null)
                                 <button type="submit" class="btn btn-success" disabled>Payment</button>
                             @else --}}
                                 <button type="submit" class="btn btn-success" >Payment</button>
                             {{-- @endif --}}
-                            
+                        </div>
                         </form>
                     </li>
                 </ul>
@@ -68,24 +73,4 @@
         </div>
     </div>
 @endsection
-@section('js')
-<script>
-    $(document).ready(function(){
-        $.ajax({
-            url : 'http://localhost:8000/province',
-            method : 'get',
-            dataType : 'JSON',
-            success : function(response){
-                var data = response.data.rajaongkir.results
-                console.log(data);
-                $.each(data , function(key,val){
-                    $('#province').append(`<option value="` + val.province_id + `">`+ val.province + `</option>`)
-                })
-            },
-            error: function(err){
-                console.log(err)
-            }
-        })
-    })
-</script>
-@endsection
+
