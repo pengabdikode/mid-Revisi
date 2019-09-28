@@ -37,8 +37,6 @@
                                 <input id="alamat" type="text" class="form-control" name="alamat" placeholder="Isi Alamat Lain" value="">
                             </div>
                         </div>
-                    </li>
-                    <li class="list-group-item">
                         <div class="form-group">
                             <h5>Pembayaran</h5>
                             <div class="form-check">
@@ -59,13 +57,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                            <div class="form-group">
                             {{-- @if ($cart == null)
                                 <button type="submit" class="btn btn-success" disabled>Payment</button>
                             @else --}}
                                 <button type="submit" class="btn btn-success" >Payment</button>
                             {{-- @endif --}}
-                        </div>
+                            </div>
                         </form>
                     </li>
                 </ul>
